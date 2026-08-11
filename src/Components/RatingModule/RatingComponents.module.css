@@ -1,0 +1,88 @@
+.ratingWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ratingLabel {
+  font-size: 10px;
+  font-weight: 500;
+  color: #2d3436;
+}
+
+.ratingContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Кружок */
+.ratingDot {
+  border-radius: 50%;
+  border: 2px solid #d0d0d0;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* Интерактивные эффекты */
+.ratingDot.interactive:hover {
+  transform: scale(1.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.ratingDot.interactive:active {
+  transform: scale(0.9);
+}
+
+/* Заполненный кружок */
+.ratingDot.filled {
+  box-shadow: 0 2px 8px rgba(108, 92, 231, 0.3);
+  transition: all 0.2s ease;
+}
+
+/* Пустой кружок при наведении */
+.ratingDot.empty.interactive:hover {
+  background: #f0f0f0;
+  border-color: #bbb;
+}
+
+/* Режим только для чтения */
+.ratingDot.readOnly {
+  cursor: default;
+  opacity: 0.8;
+}
+
+.ratingDot.readOnly:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Значение справа */
+.ratingValue {
+  font-size: 14px;
+  color: #999;
+  margin-left: 8px;
+  min-width: 40px;
+  text-align: center;
+}
+
+/* Анимация при клике */
+.ratingDot.filled {
+  animation: pop 0.2s ease;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

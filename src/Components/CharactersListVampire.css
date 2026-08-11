@@ -112,6 +112,7 @@ body {
   Удаляем все анимации и переходы для людей,
   которые предпочитают их не использовать
  */
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
@@ -122,11 +123,10 @@ body {
 }
 
 :root {
+  --color-red: #c43329;
   --color-dark: #000000;
-  --color-dark-alternate: #131619;
+
   --color-light: #ffffff;
-  --color-dark-gray: #404040;
-  --color-light-gray: #c4c4c4;
 
   --font-family-base: "Heebo", sans-serif;
   --font-family-accent: "Yantramanav", sans-serif;
@@ -134,14 +134,228 @@ body {
 
 .vanmpire-list {
   text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
+.name-of-list {
+  font-family: var(--font-family-accent);
+  font-weight: 700;
+  font-size: 32px;
+  text-transform: uppercase;
+  color: var(--color-dark);
+  margin-bottom: 30px;
+}
+
+/* Основная сетка */
 .header-character-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0px;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px 0;
+}
+
+/* Каждый элемент сетки */
+.header-character-item {
+  display: flex;
+  align-items: end; /* ← выравнивание по центру */
+  border-radius: 6px;
+  min-height: 44px; /* чтобы все строки были одинаковой высоты */
+}
+
+/* Инпуты */
+.character-input {
+  flex: 1;
+  padding: 4px 8px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  background: white;
+  min-width: 0; /* чтобы не вылезал за границы */
+  border: 0, 0, 0, 10px;
+}
+
+/* Последний элемент в сетке (если нужно специальное поведение) */
+.header-character-list :last-child {
+  grid-column: 3; /* если хочешь, чтобы последний был в 3-й колонке */
+}
+.attributes-title-section {
+  font-family: var(--font-family-accent);
+  font-weight: 700;
+  font-size: 32px;
+  text-transform: uppercase;
+  color: var(--color-red);
+  margin-bottom: 30px;
+}
+.attributes {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
 }
+.attribute-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+.attribute-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* ← название слева, рейтинг справа */
+  min-height: 30px;
+}
 
-.header-character-list :last-child {
-  grid-column: 3;
+.skill-title-section {
+  font-family: var(--font-family-accent);
+  font-weight: 700;
+  font-size: 32px;
+  text-transform: uppercase;
+  color: var(--color-red);
+  margin-bottom: 30px;
+}
+
+.skill {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.skill-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+.skill-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* ← название слева, рейтинг справа */
+  min-height: 30px;
+}
+
+.disciplines {
+  max-width: 600px;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+}
+
+.table-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  color: #2d3436;
+  margin-bottom: 16px;
+}
+
+.disciplines-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  border-top: none;
+  border-bottom: none;
+}
+
+.disciplines-table th,
+.disciplines-table td {
+  padding: 10px 15px;
+  text-align: left;
+  border: none; /* убираем все */
+  border-left: 1px solid #070000;
+  border-right: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  border-top: 1px solid #000000;
+}
+.disciplines-table tbody tr:first-child td {
+  border-top: none;
+}
+
+.disciplines-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.disciplines-table td:first-child {
+  border-left: none;
+}
+
+/* Убираем правую границу у последней колонки */
+.disciplines-table td:last-child {
+  border-right: none;
+}
+.disciplines-table tbody tr:hover {
+  background-color: #af205b;
+}
+
+.pros-cons {
+  max-width: 600px;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+}
+
+.pros-cons-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  border-top: none;
+  border-bottom: none;
+}
+
+.pros-cons th,
+.pros-cons td {
+  padding: 10px 15px;
+  text-align: left;
+  border: none; /* убираем все */
+  border-left: 1px solid #070000;
+  border-right: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  border-top: 1px solid #000000;
+}
+.pros-cons tbody tr:first-child td {
+  border-top: none;
+}
+
+.pros-cons tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.pros-cons td:first-child {
+  border-left: none;
+}
+
+/* Убираем правую границу у последней колонки */
+.pros-cons td:last-child {
+  border-right: none;
+}
+.pros-cons-table tbody tr:hover {
+  background-color: #af205b;
+}
+
+.footer-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 колонки */
+  gap: 16px 40px; /* отступы между строками и колонками */
+  max-width: 600px; /* ← ограничиваем ширину */
+  margin: 0 auto; /* ← центрируем */
+  padding: 20px;
+  list-style: none;
+  background: #f8f9fa;
+  border-radius: 12px;
+}
+
+.footer-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* ← название слева, рейтинг справа */
+  padding: 6px 12px;
+  min-height: 36px;
+  background: white;
+  border-radius: 6px;
+  border: 1px solid #eee;
+}
+
+.footer-item-name {
+  font-weight: 500;
+  font-size: 14px;
+  color: #2d3436;
+  white-space: nowrap;
 }
