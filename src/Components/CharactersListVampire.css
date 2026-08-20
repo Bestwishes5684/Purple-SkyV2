@@ -235,103 +235,12 @@ body {
   justify-content: space-between; /* ← название слева, рейтинг справа */
   min-height: 30px;
 }
-
-.disciplines {
-  max-width: 600px;
-  margin: 20px auto;
-  font-family: Arial, sans-serif;
+.discipline-container {
+  padding-top: 40px;
 }
-
-.table-title {
-  text-align: center;
-  font-size: 24px;
-  font-weight: 700;
-  color: #2d3436;
-  margin-bottom: 16px;
-}
-
-.disciplines-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 14px;
-  border-top: none;
-  border-bottom: none;
-}
-
-.disciplines-table th,
-.disciplines-table td {
-  padding: 10px 15px;
-  text-align: left;
-  border: none; /* убираем все */
-  border-left: 1px solid #070000;
-  border-right: 1px solid #000000;
-  border-bottom: 1px solid #000000;
-  border-top: 1px solid #000000;
-}
-.disciplines-table tbody tr:first-child td {
-  border-top: none;
-}
-
-.disciplines-table tbody tr:last-child td {
-  border-bottom: none;
-}
-
-.disciplines-table td:first-child {
-  border-left: none;
-}
-
-/* Убираем правую границу у последней колонки */
-.disciplines-table td:last-child {
-  border-right: none;
-}
-.disciplines-table tbody tr:hover {
-  background-color: #af205b;
-}
-
 .pros-cons {
-  max-width: 600px;
-  margin: 20px auto;
-  font-family: Arial, sans-serif;
+  padding-top: 40px;
 }
-
-.pros-cons-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 14px;
-  border-top: none;
-  border-bottom: none;
-}
-
-.pros-cons th,
-.pros-cons td {
-  padding: 10px 15px;
-  text-align: left;
-  border: none; /* убираем все */
-  border-left: 1px solid #070000;
-  border-right: 1px solid #000000;
-  border-bottom: 1px solid #000000;
-  border-top: 1px solid #000000;
-}
-.pros-cons tbody tr:first-child td {
-  border-top: none;
-}
-
-.pros-cons tbody tr:last-child td {
-  border-bottom: none;
-}
-
-.pros-cons td:first-child {
-  border-left: none;
-}
-
-/* Убираем правую границу у последней колонки */
-.pros-cons td:last-child {
-  border-right: none;
-}
-.pros-cons-table tbody tr:hover {
-  background-color: #af205b;
-}
-
 .stats-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* 2 колонки */

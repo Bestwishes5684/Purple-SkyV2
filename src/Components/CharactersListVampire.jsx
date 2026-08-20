@@ -36,10 +36,7 @@ function CharactersListVampire() {
             Сир <input type="text" className="character-input" />
           </li>
           <li className="header-character-item rating-item">
-            Сила крови{" "}
-            <Rating
-             
-            />
+            Сила крови <Rating />
           </li>
         </ul>
       </header>
@@ -52,10 +49,7 @@ function CharactersListVampire() {
             <ul className="attribute-list">
               <li className="attribute-item">
                 <span className="attribute-name">Атлетика</span>
-                <Rating
-                 
-                  
-                />
+                <Rating />
               </li>
 
               <li className="attribute-item">
@@ -149,6 +143,10 @@ function CharactersListVampire() {
                 <span className="skill-name">Выживание</span>
                 <Rating />
               </li>
+              <li className="skill-item">
+                <input />
+                <Rating />
+              </li>
             </ul>
           </div>
           <div className="skill-group">
@@ -187,6 +185,10 @@ function CharactersListVampire() {
               </li>
               <li className="skill-item">
                 <span className="skill-name">Обман</span>
+                <Rating />
+              </li>
+              <li className="skill-item">
+                <input />
                 <Rating />
               </li>
             </ul>
@@ -229,187 +231,86 @@ function CharactersListVampire() {
                 <span className="skill-name">Технологии</span>
                 <Rating />
               </li>
+              <li className="skill-item">
+                <input />
+                <Rating />
+              </li>
             </ul>
           </div>
         </div>
       </section>
 
       <section className="discipline">
-        <h1 className="discipline-title">Дисциплины</h1>
-        <table className="disciplines-table">
-          <tbody>
-            {/* Строка 1 */}
-            <tr>
-              <td>
-                <Rating />
-              </td>
-              <td>
-                <Rating />
-              </td>
-              <td>
-                <Rating />
-              </td>
-            </tr>
-            {/* Строка 2 */}
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            {/* Строка 3 */}
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            {/* Строка 4 */}
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            {/* Строка 5 */}
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            {/* Строка 6 */}
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            {/* Строка 7 */}
-            <tr>
-              <td>
-                <Rating />
-              </td>
-              <td>
-                <Rating />
-              </td>
-              <td>
-                <Rating />
-              </td>
-            </tr>
-            {/* Строка 8 */}
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            {/* Строка 9 */}
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            {/* Строка 10 */}
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            {/* Строка 11 */}
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            {/* Строка 12 */}
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            {/* Строка 13 */}
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
+        <div className="discipline-container">
+          <ResizableTextArea
+            title="Дисциплины"
+            placeholder="ТУ-ТУ-ТУТ ВАШИ ДИСциплины"
+            defaultRows={8}
+            minRows={5}
+            maxRows={14}
+            onChange={(text) => console.log("Текст:", text)}
+          />
+        </div>
       </section>
 
       <section className="pros-cons">
-        <h1 className="pros-cons-title">Достоинства/Недостатки</h1>
-        <table className="pros-cons-table">
-          <tbody>
-            {/* Строка 1 */}
-            <tr>
-              <td>
-                <Rating />
-              </td>
-              <td>
-                <Rating />
-              </td>
-              <td>
-                <Rating />
-              </td>
-            </tr>
-            {/* Строка 2 */}
-            <tr>
-              <td>
-                <Rating />
-              </td>
-              <td>
-                <Rating />
-              </td>
-              <td>
-                <Rating />
-              </td>
-            </tr>
-            {/* Строка 3 */}
-            <tr>
-              <td>
-                <Rating />
-              </td>
-              <td>
-                <Rating />
-              </td>
-              <td>
-                <Rating />
-              </td>
-            </tr>
-            {/* Строка 4 */}
-            <tr>
-              <td>
-                <Rating />
-              </td>
-              <td>
-                <Rating />
-              </td>
-              <td>
-                <Rating />
-              </td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
+        <div className="pros-cons-container">
+          <ResizableTextArea
+            title="Достоинства/Недостатки"
+            placeholder="Доистоинства? Недостатки?"
+            defaultRows={8}
+            minRows={5}
+            maxRows={14}
+            onChange={(text) => console.log("Текст:", text)}
+          />
+        </div>
       </section>
       <section className="section-vampire-stats">
         <div className="container-stats">
           <ul className="stats-list">
             <li className="stats-item">
-              <span className="stats-item-name">Здоровье</span>
-              <Rating />
+              <Rating
+                label="Голод"
+                mode="accumulate" // ← накопление
+                clicksToFull={3} // ← 3 клика = 100%
+                max={5}
+                value={0}
+                color="#ee1919"
+                size="md"
+              />
             </li>
             <li className="stats-item">
-              <span className="stats-item-name">Голод</span>
-              <Rating />
+              <Rating
+                label="Голод"
+                mode="accumulate" // ← накопление
+                clicksToFull={3} // ← 3 клика = 100%
+                max={5}
+                value={0}
+                color="#ee1919"
+                size="md"
+              />
             </li>
             <li className="stats-item">
-              <span className="stats-item-name">Воля</span>
-              <Rating />
+              <Rating
+                label="Голод"
+                mode="accumulate" // ← накопление
+                clicksToFull={3} // ← 3 клика = 100%
+                max={5}
+                value={0}
+                color="#ee1919"
+                size="md"
+              />
             </li>
             <li className="stats-item">
-              <span className="stats-item-name">Человечность</span>
-              <Rating />
+              <Rating
+                label="Голод"
+                mode="accumulate" // ← накопление
+                clicksToFull={3} // ← 3 клика = 100%
+                max={5}
+                value={0}
+                color="#ee1919"
+                size="md"
+              />
             </li>
           </ul>
         </div>
