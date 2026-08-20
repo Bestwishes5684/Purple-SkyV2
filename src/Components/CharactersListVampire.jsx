@@ -1,5 +1,6 @@
-import "../Components/CharactersListVampire.css";
+import "./CharactersListVampire.css";
 import Rating from "./RatingModule/RatingComponents.jsx";
+import AvatarUploader from "./AvatarModule/AvatarUploader.jsx";
 
 function CharactersListVampire() {
   return (
@@ -385,28 +386,67 @@ function CharactersListVampire() {
           </tbody>
         </table>
       </section>
-      <footer className="footer-vampire">
-        <div className="footer-container">
-          <ul className="footer-list">
-            <li className="footer-item">
-              <span className="footer-item-name">Здоровье</span>
-              <Rating/>
+      <section className="section-vampire-stats">
+        <div className="container-stats">
+          <ul className="stats-list">
+            <li className="stats-item">
+              <span className="stats-item-name">Здоровье</span>
+              <Rating />
             </li>
-            <li className="footer-item">
-              <span className="footer-item-name">Голод</span>
-              <Rating/>
+            <li className="stats-item">
+              <span className="stats-item-name">Голод</span>
+              <Rating />
             </li>
-            <li className="footer-item">
-              <span className="footer-item-name">Воля</span>
-              <Rating/>
+            <li className="stats-item">
+              <span className="stats-item-name">Воля</span>
+              <Rating />
             </li>
-            <li className="footer-item">
-              <span className="footer-item-name">Человечность</span>
-              <Rating/>
+            <li className="stats-item">
+              <span className="stats-item-name">Человечность</span>
+              <Rating />
             </li>
           </ul>
         </div>
-      </footer>
+      </section>
+
+      <section className="about-section">
+        <h1 className="section-title">О персонаже</h1>
+        <div className="history-container-and-goals">
+          <div className="history">
+            <h1 className="history-title">История</h1>
+            <textarea className="history-vampire"></textarea>
+          </div>
+          <div className="goals">
+            <h1 className="goals-title">Цели</h1>
+            <textarea className="goals-vampire"></textarea>
+          </div>
+        </div>
+        <div className="alies-andequpment-conteiner">
+          <div className="allies-and-contacst">
+            <h1 className="allies-and-contacst-title">Союзники и связи</h1>
+            <textarea className="allies-and-contacst-text"></textarea>
+          </div>
+          <div className="property-and-equipment">
+            <h1 className="property-and-equipment-title">
+              Имущество и снаряжение
+            </h1>
+            <textarea className="property-and-equipment-text"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <section className="appearance-section">
+        <h1 className="apperance-title"> Внешность персонажа</h1>
+        <div className="avatar-and-notes">
+          <div className="avatar">
+            <AvatarUploader />
+          </div>
+          <div className="notes">
+            <textarea className="notes-text"></textarea>
+            <h1>Заметки</h1>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

@@ -1,0 +1,106 @@
+/* Обертка */
+.avatar-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+}
+
+/* Контейнер аватарки (кликабельный) */
+.avatar-container {
+    width: 350px;
+    height: 350px;
+    border-radius: 10%;
+    overflow: hidden;
+    border: 3px solid #d43630;
+    cursor: pointer;
+    background: #f0f0f0;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar-container:hover {
+    border-color: #e41616;
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(226, 103, 20, 0.3);
+}
+
+/* Само изображение */
+.avatar-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Заглушка, когда нет аватара */
+.avatar-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #999;
+    font-size: 14px;
+}
+
+.avatar-placeholder span {
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 1;
+}
+
+.avatar-placeholder p {
+    margin: 4px 0 0 0;
+    font-size: 12px;
+}
+
+/* Скрытый input */
+.avatar-input {
+    display: none;
+}
+
+/* Кнопки действий */
+.avatar-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.upload-btn,
+.remove-btn {
+    padding: 10px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-btn {
+    background: #4CAF50;
+    color: white;
+}
+
+.upload-btn:hover:not(:disabled) {
+    background: #45a049;
+    transform: translateY(-2px);
+}
+
+.upload-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.remove-btn {
+    background: #f44336;
+    color: white;
+}
+
+.remove-btn:hover {
+    background: #d32f2f;
+    transform: translateY(-2px);
+}
