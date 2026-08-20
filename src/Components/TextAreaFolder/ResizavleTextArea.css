@@ -1,0 +1,173 @@
+:root {
+  --color-grey: #362c2be3;
+  --color-dark: #000000;
+
+  --color-light: #ffffff;
+}
+
+.resizable-textarea-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 600px;
+  margin: 0 auto;
+  font-family: "Georgia", serif;
+}
+
+/* Контейнер для textarea */
+.textarea-container {
+  position: relative;
+  background: #ffffff;  /* ← БЕЛЫЙ ФОН */
+  border: 2px solid #2a1a1a;
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.textarea-container:focus-within {
+  border-color: #000000;
+  box-shadow: 0 0 20px rgba(12, 3, 3, 0.3);
+}
+
+/* Само поле */
+.resizable-textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 12px 20px 40px 20px;
+  
+  /* ===== ЛИНИИ ===== */
+  background-color: #ffffff;  /* ← белый фон */
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 27px,
+    #d0d0d0 28px  /* ← цвет линий (серый) */
+  );
+  background-size: 100% 28px;
+  background-position: 0 12px;
+  background-repeat: repeat;
+  /* ===== КОНЕЦ ЛИНИЙ ===== */
+  
+  border: none;
+  color: #000000;
+  font-size: 15px;
+  font-family: "Georgia", serif;
+  line-height: 28px;
+  resize: none;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.resizable-textarea::placeholder {
+  color: #999;
+  font-style: italic;
+  font-size: 14px;
+}
+
+.resizable-textarea:focus {
+  color: #000000;
+}
+
+/* Счетчик строк */
+.row-counter {
+  position: absolute;
+  bottom: 10px;
+  right: 16px;
+  font-size: 11px;
+  color: #888;
+  letter-spacing: 1px;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 2px 12px;
+  border-radius: 10px;
+  font-family: "Georgia", serif;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Нижняя панель */
+.textarea-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  background: rgba(238, 238, 240, 0.8);
+  border: 2px solid #2a1a1a;
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Заголовок слева */
+.footer-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #000000;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Georgia", serif;
+}
+
+.footer-title .decor-left,
+.footer-title .decor-right {
+  color: #888;
+  font-size: 12px;
+}
+
+/* Кнопки справа */
+.footer-buttons {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.btn-row {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #000000;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #000000;
+  font-size: 20px;
+  font-weight: 300;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Georgia", serif;
+  line-height: 1;
+}
+
+.btn-row:hover:not(:disabled) {
+  background: #8b0000;
+  color: #fff;
+  border-color: #8b0000;
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(139, 0, 0, 0.4);
+}
+
+.btn-row:active:not(:disabled) {
+  transform: scale(0.9);
+}
+
+.btn-row:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-plus:hover:not(:disabled) {
+  background: #4caf50;
+  border-color: #4caf50;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
+}
+
+.btn-minus:hover:not(:disabled) {
+  background: #f44336;
+  border-color: #f44336;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(244, 67, 54, 0.3);
+}

@@ -1,88 +1,225 @@
 .ratingWrapper {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   gap: 8px;
 }
 
 .ratingLabel {
-  font-size: 10px;
+  font-size: 14px;
+  color: #333;
   font-weight: 500;
-  color: #2d3436;
+  margin-right: 4px;
 }
 
 .ratingContainer {
   display: flex;
   align-items: center;
-  gap: 10px;
-}
-
-/* Кружок */
-.ratingDot {
-  border-radius: 50%;
-  border: 2px solid #d0d0d0;
-  background: transparent;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  padding: 0;
-  flex-shrink: 0;
+  gap: 6px;
   position: relative;
 }
 
-/* Интерактивные эффекты */
+/* ===== БАЗОВЫЙ СТИЛЬ ===== */
+.ratingDot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #d0d0d0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-weight: 400;
+  line-height: 1;
+  user-select: none;
+  padding: 0;
+  position: relative;
+  flex-shrink: 0;
+}
+
 .ratingDot.interactive:hover {
   transform: scale(1.15);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-color: #888;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
 }
 
 .ratingDot.interactive:active {
   transform: scale(0.9);
 }
 
-/* Заполненный кружок */
 .ratingDot.filled {
-  box-shadow: 0 2px 8px rgba(108, 92, 231, 0.3);
-  transition: all 0.2s ease;
+  border-color: currentColor;
 }
 
-/* Пустой кружок при наведении */
-.ratingDot.empty.interactive:hover {
-  background: #f0f0f0;
-  border-color: #bbb;
+.ratingDot.empty {
+  border-color: #d0d0d0;
+  opacity: 0.5;
 }
 
-/* Режим только для чтения */
 .ratingDot.readOnly {
   cursor: default;
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
 .ratingDot.readOnly:hover {
   transform: none;
-  box-shadow: none;
 }
 
-/* Значение справа */
+/* ===== СОСТОЯНИЯ ЗАПОЛНЕНИЯ ===== */
+.ratingDot.partial {
+  border-style: dashed;
+  border-color: currentColor;
+}
+
+.ratingDot.full {
+  border-style: solid;
+  border-color: currentColor;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.15);
+}
+
+/* ===== ПРОГРЕСС-БАР (под элементом) ===== */
+.progressBar {
+  position: absolute;
+  bottom: -4px;
+  left: 10%;
+  height: 3px;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+  background-color: currentColor;
+  opacity: 0.6;
+}
+
+/* ===== ТИПЫ ЭЛЕМЕНТОВ ===== */
+
+/* Круг */
+.typeCircle {
+  border-radius: 50%;
+}
+
+.typeCircle.filled {
+  background-color: currentColor;
+  border-color: currentColor;
+  color: white;
+}
+
+.typeCircle.partial {
+  background-color: transparent;
+  border-color: currentColor;
+  border-style: dashed;
+  color: currentColor;
+}
+
+/* Сердечко */
+.typeHeart {
+  border: none !important;
+  background: transparent !important;
+  font-size: inherit;
+  color: #d0d0d0;
+}
+
+.typeHeart.filled {
+  color: currentColor;
+}
+
+.typeHeart.partial {
+  color: currentColor;
+  opacity: 0.6;
+}
+
+.typeHeart.empty {
+  color: #d0d0d0;
+}
+
+/* Квадрат */
+.typeSquare {
+  border-radius: 4px;
+}
+
+.typeSquare.filled {
+  background-color: currentColor;
+  border-color: currentColor;
+  color: white;
+}
+
+.typeSquare.partial {
+  background-color: transparent;
+  border-color: currentColor;
+  border-style: dashed;
+  color: currentColor;
+}
+
+/* Звезда */
+.typeStar {
+  border: none !important;
+  background: transparent !important;
+  font-size: inherit;
+  color: #d0d0d0;
+}
+
+.typeStar.filled {
+  color: currentColor;
+  text-shadow: 0 0 15px currentColor;
+}
+
+.typeStar.partial {
+  color: currentColor;
+  opacity: 0.6;
+}
+
+.typeStar.empty {
+  color: #d0d0d0;
+}
+
+/* Ромб */
+.typeDiamond {
+  border-radius: 2px;
+  transform: rotate(45deg);
+  width: 70% !important;
+  height: 70% !important;
+}
+
+.typeDiamond.filled {
+  background-color: currentColor;
+  border-color: currentColor;
+}
+
+.typeDiamond.partial {
+  background-color: transparent;
+  border-color: currentColor;
+  border-style: dashed;
+}
+
+.typeDiamond.empty {
+  background-color: transparent;
+  border-color: #d0d0d0;
+}
+
+/* Кастомный */
+.typeCustom {
+  border: none !important;
+  background: transparent !important;
+  font-size: inherit;
+  color: #d0d0d0;
+}
+
+.typeCustom.filled {
+  color: currentColor;
+}
+
+.typeCustom.partial {
+  color: currentColor;
+  opacity: 0.6;
+}
+
+.typeCustom.empty {
+  color: #d0d0d0;
+}
+
+/* ===== ЗНАЧЕНИЕ ===== */
 .ratingValue {
   font-size: 14px;
-  color: #999;
-  margin-left: 8px;
-  min-width: 40px;
+  font-weight: 600;
+  color: #333;
+  min-width: 24px;
   text-align: center;
-}
-
-/* Анимация при клике */
-.ratingDot.filled {
-  animation: pop 0.2s ease;
-}
-
-@keyframes pop {
-  0% {
-    transform: scale(0.8);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
-  }
+  margin-left: 4px;
 }

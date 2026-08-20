@@ -1,7 +1,7 @@
 import "./CharactersListVampire.css";
 import Rating from "./RatingModule/RatingComponents.jsx";
 import AvatarUploader from "./AvatarModule/AvatarUploader.jsx";
-
+import ResizableTextArea from "./TextAreaFolder/ResizableTextArea.jsx";
 function CharactersListVampire() {
   return (
     <main className="vanmpire-list">
@@ -36,7 +36,10 @@ function CharactersListVampire() {
             Сир <input type="text" className="character-input" />
           </li>
           <li className="header-character-item rating-item">
-            Сила крови <Rating />
+            Сила крови{" "}
+            <Rating
+             
+            />
           </li>
         </ul>
       </header>
@@ -49,7 +52,10 @@ function CharactersListVampire() {
             <ul className="attribute-list">
               <li className="attribute-item">
                 <span className="attribute-name">Атлетика</span>
-                <Rating />
+                <Rating
+                 
+                  
+                />
               </li>
 
               <li className="attribute-item">
@@ -413,24 +419,46 @@ function CharactersListVampire() {
         <h1 className="section-title">О персонаже</h1>
         <div className="history-container-and-goals">
           <div className="history">
-            <h1 className="history-title">История</h1>
-            <textarea className="history-vampire"></textarea>
+            <ResizableTextArea
+              title="История"
+              placeholder="Расскажите историю своего персонажа"
+              defaultRows={3}
+              minRows={3}
+              maxRows={10}
+              onChange={(text) => console.log("Текст:", text)}
+            />
           </div>
           <div className="goals">
-            <h1 className="goals-title">Цели</h1>
-            <textarea className="goals-vampire"></textarea>
+            <ResizableTextArea
+              title="Цели"
+              placeholder="Напишите цели своего персонажа"
+              defaultRows={3}
+              minRows={3}
+              maxRows={10}
+              onChange={(text) => console.log("Текст:", text)}
+            />
           </div>
         </div>
         <div className="alies-andequpment-conteiner">
           <div className="allies-and-contacst">
-            <h1 className="allies-and-contacst-title">Союзники и связи</h1>
-            <textarea className="allies-and-contacst-text"></textarea>
+            <ResizableTextArea
+              title="Союзники и связи"
+              placeholder="Тут находятся ваши социальные связи идрузья"
+              defaultRows={3}
+              minRows={3}
+              maxRows={5}
+              onChange={(text) => console.log("Текст:", text)}
+            />
           </div>
           <div className="property-and-equipment">
-            <h1 className="property-and-equipment-title">
-              Имущество и снаряжение
-            </h1>
-            <textarea className="property-and-equipment-text"></textarea>
+            <ResizableTextArea
+              title="Имущество и снаряжение"
+              placeholder="ПУШКИ ДЕНЬГИ КАРТЫ"
+              defaultRows={5}
+              minRows={3}
+              maxRows={10}
+              onChange={(text) => console.log("Текст:", text)}
+            />
           </div>
         </div>
       </section>
@@ -442,8 +470,14 @@ function CharactersListVampire() {
             <AvatarUploader />
           </div>
           <div className="notes">
-            <textarea className="notes-text"></textarea>
-            <h1>Заметки</h1>
+            <ResizableTextArea
+              title="Заметки"
+              placeholder="ТУ-ТУ-ТУТ ВАШИ ЗАМЕТКИ"
+              defaultRows={8}
+              minRows={3}
+              maxRows={20}
+              onChange={(text) => console.log("Текст:", text)}
+            />
           </div>
         </div>
       </section>
